@@ -18,38 +18,39 @@
 				</div>
 				<div class="panel-body">
 					<form:form role="form" action="/cart/checkout" method="POST" modelAttribute="order">
+						<input name="account" value="${ User.username }" hidden>
 						<div class="form-group">
-							<label for="name">Họ và Tên *</label> <input type="text"
+							<label for="name">Họ và Tên *</label> <form:input type="text"
 								class="form-control form-control-large" id="name" name="fullname" readonly="true"
-								value="${ User.fullname }" />
+								path="account" value="${ User.fullname }" />							
 						</div>
 						<div class="row">
 							<div class="col-xs-6">
 								<div class="form-group">
-									<label for="phone">Số Điện Thoại *</label> <input type="text"
-										class="form-control form-control-small" id="phone"
-										placeholder="Số điện thoại của bạn">
+									<label for="phone">Số Điện Thoại *</label> <form:input type="text"
+										class="form-control form-control-small" id="phone" path="phone"
+										placeholder="Số điện thoại của bạn" />
 								</div>
 							</div>
 							<div class="col-xs-6">
 								<div class="form-group">
-									<label for="email">Địa chỉ Email *</label> <input  path=""
+									<label for="email">Địa chỉ Email *</label> <form:input path="account"
 								class="form-control form-control-large" id="email" readonly="true"
-								placeholder="${ User.email }" />
+								value="${ User.email }" />
 								</div>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="state" class="control-label">Địa chỉ giao
-								hàng *</label> <input type="text" class="form-control" id="state"
-								placeholder="Ví dụ: số 69, ngõ 8 Lê Quang Đạo, Nam Từ Liêm, Hà Nội">
+								hàng *</label> <form:input type="text" class="form-control" id="state" path="address"
+								placeholder="Ví dụ: số 69, ngõ 8 Lê Quang Đạo, Nam Từ Liêm, Hà Nội" />
 						</div>
 						<h3>Thông tin bổ sung</h3>
 						<div class="form-group">
 							<label for="note" class="control-label">Ghi chú đơn hàng
 								(Không bắt buộc)</label>
-							<textarea class="form-control" rows="5" id="note"
-								placeholder="Ghi chú về đơn hàng (thời gian nhận hàng hoặc điểm giao hàng chi tiết hơn)."></textarea>
+							<form:textarea class="form-control" rows="5" id="note" path="note"
+								placeholder="Ghi chú về đơn hàng (thời gian nhận hàng hoặc điểm giao hàng chi tiết hơn)."></form:textarea>
 						</div>
 						<div class="well">
 							<button type="submit" class="btn btn-lg btn-success btn-block" 
